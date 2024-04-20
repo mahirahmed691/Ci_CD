@@ -12,7 +12,10 @@
     </header>
 
     <section class="content">
-        <h2>Checklist</h2>
+        <h2>Course Tracker</h2>
+        <p>Total Courses: <span id="totalCourses">0</span></p>
+        <p>Completed Courses: <span id="completedCourses">0</span></p>
+        <h2>Courses</h2>
         <ul id="checklist">
             <li><input type="checkbox" id="check1"><label for="check1">Understand the basic principles of DevOps.</label></li>
             <li><input type="checkbox" id="check2"><label for="check2">Learn about version control systems like Git.</label></li>
@@ -27,8 +30,10 @@
 
     <footer>
         <p>Keep learning and mastering DevOps practices!</p>
+        <button id="addCourseBtn">Add Course</button>
+        <button id="completeCourseBtn">Complete Course</button>
+        <button id="resetBtn">Reset</button>
+        <script src="script.js"></script>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
