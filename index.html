@@ -28,11 +28,26 @@
         </section>
 
         <!-- New section for fetching content from API -->
-        <section class="api-content col-md-6">
-            <h2>Quiz Questions</h2>
-            <div id="quizQuestions"></div>
-            <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
-        </section>
+        <section class="row">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                      <h2 class="card-title">Quiz Questions</h2>
+                      <div id="quizQuestions"></div>
+                      <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Daily DevOps Job Postings in the UK</h2>
+                    <p>Number of DevOps jobs posted daily in the UK: <span id="dailyJobs">Loading...</span></p>
+                </div>
+            </div>
+        </div>
+      </section>
+      
 
         <!-- Case Studies section -->
         <section class="case-studies col-md-6">
@@ -55,7 +70,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Add more case studies as needed -->
         </section>
     </div>
 
