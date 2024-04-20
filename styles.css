@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    max-width: 1200px; /* Increased max-width for better layout */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -17,9 +17,9 @@ body {
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: #b88ba1; /* Pink */
-    color: #ffffff; /* White */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background-color: #b88ba1;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -28,29 +28,29 @@ h1 {
 }
 
 section.content {
-    background-color: #ffffff; /* White */
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     padding: 20px;
 }
 
 h2 {
-    color: #ff4081; /* Pink */
+    color: #ff4081;
     font-size: 2rem;
     margin-bottom: 15px;
 }
 
 p {
-    color: #555; /* Dark gray */
+    color: #555;
     font-size: 1.2rem;
     margin-bottom: 15px;
 }
 
 ul {
     margin-bottom: 15px;
-    padding: 0; /* Remove default padding */
-    list-style: none; /* Remove bullet points */
+    padding: 0;
+    list-style: none;
 }
 
 img {
@@ -63,33 +63,45 @@ img {
 
 footer {
     text-align: center;
-    color: #555; /* Dark gray */
+    color: #555;
     font-size: 1rem;
     margin-top: 20px;
     padding: 20px 0;
 }
 
 .content {
-    max-width: 1000px; /* Decreased max-width for better readability */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 #checklist {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Four columns */
-    grid-gap: 20px; /* Adjust the gap between items */
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
 }
 
 .cover-art {
-    width: 100%; /* Make images fill their container */
-    height: 200px; /* Fixed height */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-    border-radius: 15px; /* Slightly reduced border radius for a more subtle effect */
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
 }
 
 label {
     display: block;
     font-size: 1.2rem;
-    color: #333; /* Dark gray */
+    color: #333;
     margin-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    #checklist {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #checklist {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
