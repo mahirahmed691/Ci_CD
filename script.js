@@ -100,9 +100,10 @@ document.addEventListener("DOMContentLoaded", function () {
       quizQuestionsContainer.appendChild(questionElement);
     });
   }
+
   function fetchDailyJobs() {
     const apiUrl =
-      "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=f12ffd29&app_key=84cce9773f8b03d59dc4ab3eea084ee6&results_per_page=1&what=devops";
+      "http://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=f12ffd29&app_key=84cce9773f8b03d59dc4ab3eea084ee6&results_per_page=20&what=javascript%20developer&content-type=application/json";
 
     fetch(apiUrl)
       .then((response) => {
@@ -113,14 +114,36 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((data) => {
         console.log("API Response:", data);
-        // Count the number of job listings retrieved
-        const jobCount = data.count;
-        document.getElementById("dailyJobs").textContent = jobCount;
+        // Display all job listings
+        displayJobListings(data.results);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         document.getElementById("dailyJobs").textContent = "Error";
       });
+  }
+
+  function displayJobListings(jobListings) {
+    const jobsContainer = document.getElementById("jobListings");
+    jobsContainer.innerHTML = ""; // Clear previous listings
+
+    jobListings.forEach((job) => {
+      const jobElement = document.createElement("div");
+      jobElement.classList.add("job-listing");
+      jobElement.innerHTML = `
+              <h3>${job.title}</h3>
+              <p>${job.description}</p>
+              <p>Location: ${job.location.display_name}</p>
+              <p>Company: ${job.company.display_name}</p>
+              <p>Salary: ${
+                job.salary_min ? job.salary_min : "Not specified"
+              } - ${job.salary_max ? job.salary_max : "Not specified"} ${
+        job.salary_currency
+      }</p>
+              <hr>
+          `;
+      jobsContainer.appendChild(jobElement);
+    });
   }
 
   // Fetch quiz questions and daily jobs when the page loads
