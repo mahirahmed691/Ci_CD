@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const totalCoursesElement = document.getElementById("totalCourses");
     const completedCoursesElement = document.getElementById("completedCourses");
     const checklist = document.getElementById("checklist");
+    const quizQuestionsContainer = document.getElementById("quizQuestions");
     let totalCourses = 0;
     let completedCourses = 0;
 
@@ -17,82 +18,54 @@ document.addEventListener("DOMContentLoaded", function() {
         { name: "Practice collaboration and communication within DevOps teams.", coverArt: "https://media.licdn.com/dms/image/D4D12AQFr7TrIiWCAfQ/article-cover_image-shrink_600_2000/0/1687974612505?e=2147483647&v=beta&t=9tiIKlXNUvP7hGPTS2tk-pvbwBW9_qeMd3lWnWIO3TU" }
     ];
 
-   // Function to create course item
-   function createCourseItem(course) {
-    const listItem = document.createElement("li");
-    const checkboxId = "check" + (totalCourses + 1);
-    listItem.innerHTML = `
-        <input type="checkbox" id="${checkboxId}">
-        <label for="${checkboxId}">
+    // Function to create course item
+    function createCourseItem(course) {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
             <img src="${course.coverArt}" alt="${course.name}" class="cover-art">
-            ${course.name}
-        </label>
-    `;
-    checklist.appendChild(listItem);
-    totalCourses++;
-    totalCoursesElement.textContent = totalCourses;
-}
-
-// Create course items from the array
-courses.forEach(course => {
-    createCourseItem(course);
-});
-
-    function completeCourse(courseId) {
-        const courseCheckbox = document.getElementById(courseId);
-        if (courseCheckbox) {
-            courseCheckbox.checked = true;
-            completedCourses++;
-            updateCourseCount();
-        } else {
-            console.error(`Course checkbox with ID "${courseId}" not found.`);
-        }
+            <span>${course.name}</span>
+        `;
+        checklist.appendChild(listItem);
+        totalCourses++;
+        totalCoursesElement.textContent = totalCourses;
     }
 
-    function resetChecklist() {
-        const courseCheckboxes = checklist.querySelectorAll("input[type='checkbox']");
-        courseCheckboxes.forEach(checkbox => {
-            checkbox.checked = false;
+    // Create course items from the array
+    courses.forEach(course => {
+        createCourseItem(course);
+    });
+
+    // Function to fetch quiz questions from the Open Trivia Database API
+    function fetchQuizQuestions() {
+        const apiUrl = "https://opentdb.com/api.php?amount=5&type=multiple"; // Change amount and type as needed
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results) {
+                    displayQuizQuestions(data.results);
+                } else {
+                    console.error("Error: No results found.");
+                }
+            })
+            .catch(error => console.error("Error fetching quiz questions:", error));
+    }
+
+    // Function to display quiz questions on the page
+    function displayQuizQuestions(questions) {
+        questions.forEach((question, index) => {
+            const questionElement = document.createElement("div");
+            questionElement.classList.add("question");
+            questionElement.innerHTML = `
+                <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
+                <ul>
+                    ${question.incorrect_answers.map(answer => `<li>${answer}</li>`).join("")}
+                    <li>${question.correct_answer}</li>
+                </ul>
+            `;
+            quizQuestionsContainer.appendChild(questionElement);
         });
-        completedCourses = 0;
-        updateCourseCount();
     }
 
-    // Add Course button event listener
-    const addCourseBtn = document.getElementById("addCourseBtn");
-    if (addCourseBtn) {
-        addCourseBtn.addEventListener("click", function() {
-            const courseName = prompt("Enter the name of the course:");
-            if (courseName) {
-                createCourseItem(courseName);
-            }
-        });
-    } else {
-        console.error("Add Course button not found.");
-    }
-
-    // Complete Course button event listener
-    const completeCourseBtn = document.getElementById("completeCourseBtn");
-    if (completeCourseBtn) {
-        completeCourseBtn.addEventListener("click", function() {
-            const courseId = prompt("Enter the ID of the course to mark as completed:");
-            if (courseId) {
-                completeCourse(courseId);
-            }
-        });
-    } else {
-        console.error("Complete Course button not found.");
-    }
-
-    // Reset button event listener
-    const resetBtn = document.getElementById("resetBtn");
-    if (resetBtn) {
-        resetBtn.addEventListener("click", function() {
-            if (confirm("Are you sure you want to reset the checklist?")) {
-                resetChecklist();
-            }
-        });
-    } else {
-        console.error("Reset button not found.");
-    }
+    // Fetch quiz questions when the page loads
+    fetchQuizQuestions();
 });

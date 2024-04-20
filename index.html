@@ -8,22 +8,29 @@
 </head>
 <body>
     <header>
-        <h1>Career Progression Tracker - DevOps</h1>
+        <div class="header-content">
+            <img id="logo" src="https://cdn.stackoverflow.co/images/jo7n4k8s/production/9296f6590c4bced6bc29b6c2b7f2b7033173084f-1200x600.png?rect=29,0,1143,600&w=1200&h=630&auto=format&dpr=2" height="50"  alt="Logo" class="logo">
+            <div class="buttons">
+                <button id="addCourseBtn">Add Course</button>
+            </div>
+        </div>
     </header>
 
     <section class="content">
         <h2>Course Tracker</h2>
         <p>Total Courses: <span id="totalCourses">0</span></p>
-        <p>Completed Courses: <span id="completedCourses">0</span></p>
         <h2>Courses</h2>
         <ul id="checklist"></ul>
     </section>
 
+    <!-- New section for fetching content from API -->
+    <section class="api-content">
+        <h2>Quiz Questions</h2>
+        <div id="quizQuestions"></div> <!-- Content fetched from the API will be displayed here -->
+    </section>
+
     <footer>
         <p>Keep learning and mastering DevOps practices!</p>
-        <button id="addCourseBtn">Add Course</button>
-        <button id="completeCourseBtn">Complete Course</button>
-        <button id="resetBtn">Reset</button>
         <script src="script.js"></script>
     </footer>
 </body>

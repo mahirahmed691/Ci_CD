@@ -1,5 +1,3 @@
-/* styles.css */
-
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -9,29 +7,49 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    min-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 header {
     text-align: center;
-    padding: 20px 0;
-    background-color: #b88ba1;
+    padding: 10px 0;
+    background-color: #fff;
     color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999; /* Ensure it's above other content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 30px;
+    margin-left: 20px; /* Adjusted to move the logo to the left */
+}
+
+.buttons {
+    margin-right: 20px;
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    margin-top: 60px; /* Add margin top to the content to prevent overlap */
 }
 
 section.content {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 100px; /* Adjusted to provide space for the fixed header */
     padding: 20px;
 }
 
@@ -63,10 +81,11 @@ img {
 
 footer {
     text-align: center;
-    color: #555;
+    color: #fff;
     font-size: 1rem;
     margin-top: 20px;
-    padding: 20px 0;
+    padding: 50px 0;
+    background-color: #000;
 }
 
 .content {
@@ -76,7 +95,7 @@ footer {
 
 #checklist {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
 }
 
@@ -93,6 +112,72 @@ label {
     color: #333;
     margin-top: 10px;
 }
+
+button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d8135a;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Add styling for the quiz questions section */
+.api-content {
+    margin-top: 20px; /* Add some margin from the content above */
+    padding: 20px;
+    background-color: #f5f5f5; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333; /* Darker text color */
+    font-size: 2rem;
+    margin-bottom: 20px; /* Increase margin bottom for better separation */
+}
+
+.question {
+    background-color: #fff; /* White background for each question */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px; /* Add margin between each question */
+}
+
+.question p {
+    color: #555; /* Text color for question */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.question ul {
+    list-style: none;
+    padding: 0;
+}
+
+.question ul li {
+    color: #666; /* Text color for answers */
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* Style for correct answer */
+.question ul li:last-child {
+    color: #4CAF50; /* Green color for correct answer */
+    font-weight: bold;
+}
+
 
 @media only screen and (min-width: 768px) {
     #checklist {
