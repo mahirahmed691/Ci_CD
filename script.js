@@ -102,26 +102,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fetchDailyJobs() {
-    const apiUrl =
-      "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=f12ffd29&app_key=84cce9773f8b03d59dc4ab3eea084ee6&results_per_page=20&what=javascript%20developer&content-type=application/json";
+    const apiUrl = "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=f12ffd29&app_key=84cce9773f8b03d59dc4ab3eea084ee6&results_per_page=20&what=javascript%20developer&content-type=application/json";
 
     fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("API Response:", data);
-        // Display all job listings
-        displayJobListings(data.results);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        document.getElementById("dailyJobs").textContent = "Error";
-      });
-  }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('API Response:', data);
+            // Display all job listings
+            displayJobListings(data.results);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById('dailyJobs').textContent = 'Error';
+        });
+}
+
 
   function displayJobListings(jobListings) {
     const jobsContainer = document.getElementById("jobListings");
