@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const quizQuestionsContainer = document.getElementById("quizQuestions");
     let totalCourses = 0;
     let completedCourses = 0;
+    let displayedQuestions = 2; // Number of questions initially displayed
 
     // Array of course objects with name and cover art path
     const courses = [
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { name: "Explore monitoring and logging solutions.", coverArt: "https://framr.tv/wp-content/uploads/2022/07/was-ist-monitoring.jpg" },
         { name: "Practice collaboration and communication within DevOps teams.", coverArt: "https://media.licdn.com/dms/image/D4D12AQFr7TrIiWCAfQ/article-cover_image-shrink_600_2000/0/1687974612505?e=2147483647&v=beta&t=9tiIKlXNUvP7hGPTS2tk-pvbwBW9_qeMd3lWnWIO3TU" }
     ];
+
 
     // Function to create course item
     function createCourseItem(course) {
@@ -37,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to fetch quiz questions from the Open Trivia Database API
     function fetchQuizQuestions() {
-        const apiUrl = "https://opentdb.com/api.php?amount=5&type=multiple"; // Change amount and type as needed
+        const apiUrl = "https://opentdb.com/api.php?amount=10&type=multiple"; // Fetch 10 questions initially
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 if (data.results) {
-                    displayQuizQuestions(data.results);
+                    displayQuizQuestions(data.results.slice(0, displayedQuestions)); // Display only the first two questions initially
                 } else {
                     console.error("Error: No results found.");
                 }
@@ -68,4 +70,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Fetch quiz questions when the page loads
     fetchQuizQuestions();
+
+    // Load more questions when needed
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener("click", function() {
+            displayedQuestions += 2; // Increase the number of displayed questions by 2
+            fetchQuizQuestions(); // Fetch more questions
+        });
+    }
 });
