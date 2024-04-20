@@ -15,7 +15,7 @@ body {
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: #ff4081; /* Pink */
+    background-color: #b88ba1; /* Pink */
     color: #ffffff; /* White */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
@@ -63,4 +63,30 @@ footer {
     font-size: 1rem;
     margin-top: 20px;
     padding: 20px 0;
+}
+
+.content {
+    min-width: 800px; /* Increased max-width for better layout */
+    margin: 0 auto;
+}
+
+#checklist {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    grid-gap: 20px; /* Adjust the gap between items */
+}
+
+.cover-art {
+    width: 100%; /* Make images fill their container */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    border-radius: 30px;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    color: #333; /* Dark gray */
+    margin-top: 20px;
+    margin-top: 10;
 }
