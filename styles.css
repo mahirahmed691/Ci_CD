@@ -1,5 +1,7 @@
+/* styles.css */
+
 body {
-    font-family: 'Hiragino Mincho', serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9eded; /* Light pink background */
@@ -7,7 +9,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px; /* Increased max-width for better layout */
     margin: 0 auto;
     padding: 20px;
 }
@@ -47,6 +49,8 @@ p {
 
 ul {
     margin-bottom: 15px;
+    padding: 0; /* Remove default padding */
+    list-style: none; /* Remove bullet points */
 }
 
 img {
@@ -66,7 +70,7 @@ footer {
 }
 
 .content {
-    min-width: 800px; /* Increased max-width for better layout */
+    max-width: 1000px; /* Decreased max-width for better readability */
     margin: 0 auto;
 }
 
@@ -80,13 +84,12 @@ footer {
     width: 100%; /* Make images fill their container */
     height: 200px; /* Fixed height */
     object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-    border-radius: 30px;
+    border-radius: 15px; /* Slightly reduced border radius for a more subtle effect */
 }
 
 label {
     display: block;
     font-size: 1.2rem;
     color: #333; /* Dark gray */
-    margin-top: 20px;
-    margin-top: 10;
+    margin-top: 10px;
 }
