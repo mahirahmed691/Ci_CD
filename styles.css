@@ -2,18 +2,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9eded; /* Light pink background */
+    background-color: #f7f7f7; /* Light pink background */
     line-height: 1.6;
 }
 
 .container {
-    min-width: 1200px;
+    min-width: 1200px; /* This might not be necessary with Bootstrap */
     margin: 0 auto;
     padding: 20px;
 }
 
 header {
-    text-align: center;
     padding: 10px 0;
     background-color: #fff;
     color: #ffffff;
@@ -48,13 +47,11 @@ h1 {
 section.content {
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 100px; /* Adjusted to provide space for the fixed header */
     padding: 20px;
 }
 
 h2 {
-    color: #ff4081;
     font-size: 2rem;
     margin-bottom: 15px;
 }
@@ -89,7 +86,7 @@ footer {
 }
 
 .content {
-    max-width: 1000px;
+    min-width: "100%"; /* This might not be necessary with Bootstrap */
     margin: 0 auto;
 }
 
@@ -125,7 +122,7 @@ button {
 }
 
 button:hover {
-    background-color: #d8135a;
+    /* background-color: #d8135a; */
 }
 
 button:focus {
@@ -180,13 +177,11 @@ button:focus {
 .case-studies {
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px; /* Add some margin from the content above */
     padding: 20px;
 }
 
 .case-studies h2 {
-    color: #ff4081; /* Pink color for heading */
     font-size: 2rem;
     margin-bottom: 20px; /* Increase margin bottom for better separation */
 }
@@ -202,39 +197,82 @@ button:focus {
     margin-bottom: 20px; /* Add margin between each case study */
     padding: 10px;
     border-radius: 10px;
-    text-align: center;
 }
 
 .case-study img {
-    width: 25%;
+    width: 100%;
+    height: 200px !important;
     max-width: 100%; /* Make image responsive */
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px; /* Add margin below image */
 }
 
 .case-study h3 {
     color: #333; /* Darker text color */
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 10px; /* Adjust margin bottom */
+    font-weight:bold;
 }
 
 .case-study p {
     color: #555; /* Text color for description */
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 10px; /* Adjust margin bottom */
 }
 
-.case-study a {
-    color: #ff4081; /* Pink color for link */
+.case-study a { /* Pink color for link */
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .case-study a:hover {
-    color: #d8135a; /* Darker pink color on hover */
+ /* Darker pink color on hover */
 }
 
 
 
+.logo {
+    height: 30px;
+}
+
+.content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.api-content, .case-studies {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.case-study img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.btn-primary {
+    /* background-color: #ff4081; */
+    /* border-color: #ff4081; */
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+}
+
+.btn-primary:focus {
+
+}
