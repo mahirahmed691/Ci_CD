@@ -131,17 +131,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const jobElement = document.createElement("div");
       jobElement.classList.add("job-listing");
       jobElement.innerHTML = `
-              <h3>${job.title}</h3>
-              <p>${job.description}</p>
-              <p>Location: ${job.location.display_name}</p>
-              <p>Company: ${job.company.display_name}</p>
-              <p>Salary: ${
-                job.salary_min ? job.salary_min : "Not specified"
-              } - ${job.salary_max ? job.salary_max : "Not specified"} ${
-        job.salary_currency
-      }</p>
-              <hr>
-          `;
+            <h3>${job.title}</h3>
+            <p id="desc">${job.description}</p>
+            <p>Location: ${job.location.display_name}</p>
+            <p>Company: ${job.company.display_name}</p>
+            <p>Salary: ${
+              job.salary_min ? `£${job.salary_min}` : "Not specified"
+            } - ${job.salary_max ? `£${job.salary_max}` : "Not specified"} ${
+        job.salary_currency ? job.salary_currency : ""
+      }
+        `;
       jobsContainer.appendChild(jobElement);
     });
   }

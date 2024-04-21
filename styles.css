@@ -52,6 +52,18 @@ section.content {
     width: 100%; /* Make section full width */
 }
 
+section.content img {
+    height: 200px;
+}
+
+section.content ul{
+    list-style: none;
+}
+
+section.content ul li{
+    font-weight: bolder;
+}
+
 h2 {
     font-size: 2rem;
     margin-bottom: 15px;
@@ -258,3 +270,30 @@ footer {
     background-color: #000000;
 }
 
+/* #job-card{
+    background-color: #ff4081;
+    padding: 5rem;
+} */
+
+#job-card .job-listing{
+    background-color: #ffffff;
+     margin-top: 0.5rem;
+     padding: 1rem;
+}
+
+#job-card .job-listing h3{
+    color: #a060d5;
+    font-weight: bold;
+}
+
+#job-card .job-listing #desc, p{
+    color: #000000;
+    font-weight: 100;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 768px) {
+    #checklist {
+      grid-template-columns: repeat(1, 1fr); /* Change to 1 column */
+    }
+  }

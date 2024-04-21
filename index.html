@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Learning Checklist</title>
-    <!-- Include Bootstrap CSS from CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Bulma CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <!-- Your custom styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,12 +14,12 @@
         <div class="header-content">
             <img id="logo" src="https://cdn.stackoverflow.co/images/jo7n4k8s/production/9296f6590c4bced6bc29b6c2b7f2b7033173084f-1200x600.png?rect=29,0,1143,600&w=1200&h=630&auto=format&dpr=2" alt="Logo" class="logo">
             <div class="buttons">
-                <button id="addCourseBtn" class="btn btn-primary">Add Course</button>
+                <button id="addCourseBtn" class="button is-primary">Add Course</button>
             </div>
         </div>
     </header>
 
-    <div class="container col-lg-11">
+    <div class="container">
         <section class="content">
             <h2>Course Tracker</h2>
             <p>Total Courses: <span id="totalCourses">0</span></p>
@@ -28,59 +28,81 @@
         </section>
 
         <!-- New section for fetching content from API -->
-        <section class="row">
-          <div class="col-md-6 col-sm-12">
+        <section class="columns">
+          <div class="column is-half">
               <div class="card">
-                  <div class="card-body">
+                  <div class="card-content">
                       <div id="quizQuestions"></div>
-                      <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+                      <button id="loadMoreBtn" class="button is-primary">Load More</button>
                   </div>
               </div>
           </div>
       
-        <div class="col-md-6 col-sm-12 card">
-          <div class="row">
-              <div class="col-md-6 col-sm-6 mb-4">
+        <div class="column is-half card">
+          <div class="columns">
+              <div class="column ">
                   <div class="case-study">
                       <h3>Implementing DevOps at Barclays</h3>
                       <img src="https://ampsonline.co.uk/wp-content/uploads/2019/08/Barclays-logo.png" alt="Case Study 1">
                       <p>Description of the implementation of DevOps practices at Barclays and the challenges faced.</p>
-                      <a href="#" class="btn btn-primary">Read More</a>
+                      <a href="#" class="button is-primary">Read More</a>
                   </div>
               </div>
-              <div class="col-md-6 col-sm-6 mb-4">
+              <div class="column mb-4">
                   <div class="case-study">
                       <h3>Automating Deployment with Jenkins</h3>
                       <img src="https://www.jenkins.io/images/logo-title-opengraph.png" alt="Case Study 2">
                       <p>Description of how Jenkins was used to automate deployment processes and its impact.</p>
-                      <a href="#" class="btn btn-primary">Read More</a>
+                      <a href="#" class="button is-primary">Read More</a>
                   </div>
               </div>
           </div>
         </div>
       </section>
 
-      <div class="col-md-12 mt-4">
+      <div class="mt-4">
         <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">Daily DevOps Job Postings in the UK</h2>
+            <div class="card-content" id="job-card">
+                <h2 class="title">Daily DevOps Job Postings in the UK</h2>
                 <div id="jobListings"></div>
             </div>
         </div>
     </div>
-      
-
-        <!-- Case Studies section -->
-
     </div>
 
-    <footer>
-        <p>Keep learning and mastering DevOps practices!</p>
-        <!-- Include Bootstrap JS file if needed -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="script.js"></script>
-    </footer>
+    <footer class="footer">
+      <div class="content">
+          <div class="columns">
+              <div class="column is-4">
+                  <h3 class="title is-3">Stay Connected</h3>
+                  <p>Follow us on social media for updates and tips:</p>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-linkedin"></i></a>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                  </div>
+              </div>
+              <div class="column is-4">
+                  <h3 class="title is-3">Contact Us</h3>
+                  <p>If you have any questions or feedback, feel free to reach out:</p>
+                  <p>Email: info@devopslearning.com</p>
+                  <p>Phone: +123 456 7890</p>
+              </div>
+              <div class="column is-4">
+                  <h3 class="title is-3">About</h3>
+                  <p>Learn more about our mission and vision:</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 DevOps Learning. All rights reserved.</p>
+      </div>
+  </footer>
+  
+
+    <!-- Include Bulma JS file if needed -->
+    <!-- No JavaScript dependencies for Bulma, so no script tag is required here -->
+    <script src="script.js"></script>
 </body>
 </html>
