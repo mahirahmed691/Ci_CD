@@ -4,10 +4,10 @@ body {
     padding: 0;
     background-color: #f7f7f7; /* Light pink background */
     line-height: 1.6;
+    overflow-x: hidden; /* Add this line to prevent horizontal scrolling */
 }
 
 .container {
-    min-width: 1200px; /* This might not be necessary with Bootstrap */
     margin: 0 auto;
     padding: 20px;
 }
@@ -49,6 +49,7 @@ section.content {
     border-radius: 10px;
     margin-top: 100px; /* Adjusted to provide space for the fixed header */
     padding: 20px;
+    width: 100%; /* Make section full width */
 }
 
 h2 {
@@ -72,7 +73,7 @@ img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,9 +86,8 @@ footer {
     background-color: #000;
 }
 
-.content {
-    min-width: "100%"; /* This might not be necessary with Bootstrap */
-    margin: 0 auto;
+.content, .api-content, .case-studies {
+    width: 100%; /* Make sections full width */
 }
 
 #checklist {
@@ -119,10 +119,6 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-button:hover {
-    /* background-color: #d8135a; */
 }
 
 button:focus {
@@ -226,12 +222,6 @@ button:focus {
     transition: color 0.3s ease;
 }
 
-.case-study a:hover {
- /* Darker pink color on hover */
-}
-
-
-
 .logo {
     height: 30px;
 }
@@ -264,15 +254,7 @@ footer {
     text-align: center;
 }
 
-.btn-primary {
-    /* background-color: #ff4081; */
-    /* border-color: #ff4081; */
-}
-
 .btn-primary:hover {
     background-color: #000000;
 }
 
-.btn-primary:focus {
-
-}
